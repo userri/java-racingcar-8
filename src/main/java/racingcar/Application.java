@@ -1,6 +1,5 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import camp.nextstep.edu.missionutils.Console;
 
 import java.util.*;
@@ -23,6 +22,26 @@ public class Application {
                 .distinct()
                 .toList();
 
+        isNoBlankNameList(nameList, nameListBeforeStrip);
+
+        Race race = new Race(tryNumber);
+        race.initStartLine(nameList);
+        Map<String, Integer> scores = race.run(tryNumber);
+
+        Integer maxScore = Collections.max(scores.values());
+        List<String> winners = scores.keySet()
+                .stream()
+                .filter(a -> scores.get(a).equals(maxScore))
+                .toList();
+
+        System.out.print("최종 우승자 : ");
+
+        String winnersToString = winners.stream().collect(Collectors.joining(", "));
+        System.out.println(winnersToString);
+
+    }
+
+    private static void isNoBlankNameList(List<String> nameList, List<String> nameListBeforeStrip) {
         for (String name : nameList) {
             if (name.isBlank()) {
                 throw new IllegalArgumentException(ErrorMessage.CAR_NAME_EMPTY.getError());
@@ -40,42 +59,7 @@ public class Application {
         if (nameListBeforeStrip.size() != nameList.size()) {
             throw new IllegalArgumentException(ErrorMessage.CAR_NAME_DUPLICATED.getError());
         }
-
-        Map<String, Integer> scores = new HashMap<>();
-
-        for (String name : nameList) {
-            scores.put(name, Message.START_LINE);
-        }
-
-        for (long i = 0; i < tryNumber; i++) {
-            for (String name : scores.keySet()) {
-                int advance = Randoms.pickNumberInRange(Message.ADVANCE_RANGE_START, Message.ADVANCE_RANGE_END);
-                if (advance >= Message.ADVANCE_Threshold) {
-                    scores.put(name, scores.get(name) + Message.ADVANCE_DISTANCE);
-                }
-            }
-            printResult(scores);
-        }
-
-        Integer maxScore = Collections.max(scores.values());
-        List<String> winners = scores.keySet()
-                .stream()
-                .filter(a -> scores.get(a).equals(maxScore))
-                .toList();
-
-        System.out.print("최종 우승자 : ");
-
-        String winnersToString = winners.stream().collect(Collectors.joining(", "));
-        System.out.println(winnersToString);
-
     }
 
-    private static void printResult(Map<String, Integer> scores) {
-        System.out.println("실행 결과");
-        for (String name : scores.keySet()) {
-            System.out.print(name + " : ");
-            System.out.println("-".repeat(scores.get(name)));
-        }
-        System.out.println();
-    }
+
 }

@@ -1,7 +1,11 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
+import java.util.Collections;
+import java.util.Map;
+
 public class TryNumber {
-    private String tryNumberString;
     private long tryNumber;
 
     public TryNumber(String tryNumberString) {
@@ -21,4 +25,7 @@ public class TryNumber {
         return tryNumber;
     }
 
+    public long getTryNumber() {
+        return tryNumber;
+    }
 }
