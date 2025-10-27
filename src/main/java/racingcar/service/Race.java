@@ -43,11 +43,10 @@ public class Race {
         System.out.println();
     }
 
-    public Map<String, Integer> initStartLine(List<String> nameList) {
+    public void initStartLine(List<String> nameList) {
         for (String name : nameList) {
             this.scores.put(name, Message.START_LINE);
         }
-        return scores;
     }
 
 }
