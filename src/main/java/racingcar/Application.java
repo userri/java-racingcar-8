@@ -1,6 +1,10 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.message.ErrorMessage;
+import racingcar.message.Message;
+import racingcar.domain.Race;
+import racingcar.validate.TryNumber;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -26,12 +30,12 @@ public class Application {
 
         Race race = new Race(tryNumber);
         race.initStartLine(nameList);
-        Map<String, Integer> scores = race.run(tryNumber);
+        Map<String, Integer> resultScores = race.run(tryNumber);
 
-        Integer maxScore = Collections.max(scores.values());
-        List<String> winners = scores.keySet()
+        Integer maxScore = Collections.max(resultScores.values());
+        List<String> winners = resultScores.keySet()
                 .stream()
-                .filter(a -> scores.get(a).equals(maxScore))
+                .filter(a -> resultScores.get(a).equals(maxScore))
                 .toList();
 
         System.out.print("최종 우승자 : ");

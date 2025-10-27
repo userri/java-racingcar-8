@@ -1,9 +1,6 @@
-package racingcar;
+package racingcar.validate;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
-import java.util.Collections;
-import java.util.Map;
+import racingcar.message.ErrorMessage;
 
 public class TryNumber {
     private long tryNumber;

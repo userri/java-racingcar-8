@@ -1,6 +1,8 @@
-package racingcar;
+package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.message.Message;
+import racingcar.validate.TryNumber;
 
 import java.util.HashMap;
 import java.util.List;

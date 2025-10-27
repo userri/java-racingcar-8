@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.message;
 
 public enum ErrorMessage {
     INVALID_TRY_NUMBER_FORMAT("시행횟수를 숫자로 입력해주세요."),
