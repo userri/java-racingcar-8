@@ -29,7 +29,7 @@ public class Race {
 
     private void eachCarRandomAdvance(String name) {
         int advance = Randoms.pickNumberInRange(Message.ADVANCE_RANGE_START, Message.ADVANCE_RANGE_END);
-        if (advance >= Message.ADVANCE_Threshold) {
+        if (advance >= Message.ADVANCE_THRESHOLD) {
             this.scores.put(name, this.scores.get(name) + Message.ADVANCE_DISTANCE);
         }
     }

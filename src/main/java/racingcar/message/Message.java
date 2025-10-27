@@ -8,7 +8,7 @@ public enum Message {
     public static final int ADVANCE_RANGE_END = 9;
     public static final int START_LINE = 0;
     public static final int ADVANCE_DISTANCE = 1;
-    public static final int ADVANCE_Threshold = 4;
+    public static final int ADVANCE_THRESHOLD = 4;
     public static final int MIN_PLAYERS = 2;
     public static final int MAX_NAME_LENGTH = 5;
 
