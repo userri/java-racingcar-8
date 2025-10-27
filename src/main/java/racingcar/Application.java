@@ -11,17 +11,10 @@ public class Application {
         System.out.println(Message.INPUT_NAME_MESSAGE.getMessage());
         String names = Console.readLine();
         System.out.println(Message.INPUT_TRYNUMBER_MESSAGE.getMessage());
-        String tryNumStr = Console.readLine();
+        String tryNumString = Console.readLine();
         System.out.println();
-        long tryNumber;
-        try {
-            tryNumber = Long.parseLong(tryNumStr.stripTrailing().stripLeading());
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(ErrorMessage.INVALID_TRY_COUNT_FORMAT.getError());
-        }
-        if (tryNumber <= 0) {
-            throw new IllegalArgumentException(ErrorMessage.INVALID_TRY_COUNT_FORMAT.getError());
-        }
+
+        TryNumber tryNumber = new TryNumber(tryNumString);
 
         List<String> nameListBeforeStrip = Arrays.asList(names.split(Message.INPUT_SPLIT_CHAR.getMessage()));
         List<String> nameList = nameListBeforeStrip.stream()
