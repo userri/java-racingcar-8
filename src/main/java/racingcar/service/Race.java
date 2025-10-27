@@ -1,4 +1,4 @@
-package racingcar.domain;
+package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.message.Message;

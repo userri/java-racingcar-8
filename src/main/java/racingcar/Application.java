@@ -3,14 +3,14 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.message.ErrorMessage;
 import racingcar.message.Message;
-import racingcar.domain.Race;
+import racingcar.service.Race;
 import racingcar.validate.TryNumber;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class Application {
-    public static void main(String [] args) {
+    public static void main(String[] args) {
         System.out.println(Message.INPUT_NAME_MESSAGE.getMessage());
         String names = Console.readLine();
         System.out.println(Message.INPUT_TRYNUMBER_MESSAGE.getMessage());
@@ -42,7 +42,6 @@ public class Application {
 
         String winnersToString = winners.stream().collect(Collectors.joining(", "));
         System.out.println(winnersToString);
-
     }
 
     private static void isNoBlankNameList(List<String> nameList, List<String> nameListBeforeStrip) {
@@ -64,6 +63,4 @@ public class Application {
             throw new IllegalArgumentException(ErrorMessage.CAR_NAME_DUPLICATED.getError());
         }
     }
-
-
 }
