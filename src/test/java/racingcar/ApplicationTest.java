@@ -16,19 +16,19 @@ class ApplicationTest extends NsTest {
     @Test
     void 기능_테스트() {
         assertRandomNumberInRangeTest(
-            () -> {
-                run("pobi,woni", "1");
-                assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
-            },
-            MOVING_FORWARD, STOP
+                () -> {
+                    run("pobi,woni", "1");
+                    assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
+                },
+                MOVING_FORWARD, STOP
         );
     }
 
     @Test
     void 예외_테스트() {
         assertSimpleTest(() ->
-            assertThatThrownBy(() -> runException("pobi,javaji", "1"))
-                .isInstanceOf(IllegalArgumentException.class)
+                assertThatThrownBy(() -> runException("pobi,javaji", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
         );
     }
 
@@ -40,6 +40,7 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
     @Test
     @DisplayName("구분자로 시작")
     void test_starts_with_delimiter_should_throw_error() {
@@ -48,6 +49,7 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
     @Test
     @DisplayName("구분자로 끝남")
     void test_ends_with_delimiter_should_throw_error() {
@@ -56,6 +58,7 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
     @Test
     @DisplayName("구분자 사이 빈 이름")
     void test_empty_name_between_delimiters_should_throw_error() {
@@ -64,6 +67,7 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
     @Test
     @DisplayName("이름 중복 입력")
     void test_duplicate_names_should_throw_error() {
@@ -73,6 +77,7 @@ class ApplicationTest extends NsTest {
         );
 
     }
+
     @Test
     @DisplayName("실행숫자에 음수 입력")
     void test_negative_number_input_should_throw_error() {
@@ -81,6 +86,7 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
     @Test
     @DisplayName("실행숫자에 0 입력")
     void test_zero_input_should_throw_error() {
@@ -90,6 +96,7 @@ class ApplicationTest extends NsTest {
         );
 
     }
+
     @Test
     @DisplayName("실행숫자에 문자 입력")
     void test_character_input_should_throw_error() {
@@ -99,6 +106,7 @@ class ApplicationTest extends NsTest {
         );
 
     }
+
     @Test
     @DisplayName("실행숫자에 소수 입력")
     void test_decimal_input_should_throw_error() {
