@@ -35,7 +35,6 @@ public class Race {
     }
 
     private static void printResult(Map<String, Integer> scores) {
-        System.out.println("실행 결과");
         for (String name : scores.keySet()) {
             System.out.print(name + " : ");
             System.out.println("-".repeat(scores.get(name)));

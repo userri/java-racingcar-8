@@ -31,6 +31,7 @@ public class Application {
 
         Race race = new Race(tryNumber);
         race.initStartLine(nameList);
+        System.out.println("실행 결과");
         Map<String, Integer> resultScores = race.run(tryNumber);
 
         Integer maxScore = Collections.max(resultScores.values());
