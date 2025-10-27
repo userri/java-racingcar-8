@@ -26,7 +26,8 @@ public class Application {
                 .distinct()
                 .toList();
 
-        isNoBlankNameList(nameList, nameListBeforeStrip);
+        validateNamesEndDelimiter(names);
+        validateNameList(nameList, nameListBeforeStrip);
 
         Race race = new Race(tryNumber);
         race.initStartLine(nameList);
@@ -44,7 +45,16 @@ public class Application {
         System.out.println(winnersToString);
     }
 
-    private static void isNoBlankNameList(List<String> nameList, List<String> nameListBeforeStrip) {
+    private static void validateNamesEndDelimiter(String names) {
+        String strippedNames = names.stripTrailing();
+        String endCharacter = strippedNames.substring(strippedNames.length() - 1);
+        String delimiter = Message.INPUT_SPLIT_CHAR.getMessage();
+        if (delimiter.equals(endCharacter)) {
+            throw new IllegalArgumentException(ErrorMessage.CAR_NAME_EMPTY.getError());
+        }
+    }
+
+    private static void validateNameList(List<String> nameList, List<String> nameListBeforeStrip) {
         for (String name : nameList) {
             if (name.isBlank()) {
                 throw new IllegalArgumentException(ErrorMessage.CAR_NAME_EMPTY.getError());
